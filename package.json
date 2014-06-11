@@ -1,0 +1,14 @@
+{
+ "name" : "xsl_yandex",
+ "version" : "1.0.0",
+ "description" : "Yandex school XSL tasks",
+ "url" : "http://xsl.andreyevstropov.com/",
+ "repository" : {
+  "type" : "git",
+  "url" : "https://github.com/EAndreyF/XSL_Yandex.git"
+ },
+ "dependencies" : {
+  "node_xslt" : ">0.0.0",
+  "express": "^4.1.2"
+ }
+}
