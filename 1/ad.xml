@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<root>
+	<ad>
+		<forms>
+			<form id="1" />
+			<form id="2" />
+		</forms>
+		<section>
+			<title>Title 1</title>
+			<para>Para 1</para>
+			<para>Para 2</para>
+		</section>
+	</ad>
+	<ad>
+		<forms>
+			<form id="2" />
+		</forms>
+		<section>
+			<title>Title 2</title>
+			<para>Para 4</para>
+			<para>
+				<section>
+					<para>
+						Para 6
+					</para>
+				</section>
+				Para 5
+			</para>
+		</section>
+	</ad>
+	<ad>
+		<forms>
+			<form id="1" />
+			<form id="3" />
+		</forms>
+		<section>
+			<title>Title 3</title>
+			<para>Para 6</para>
+			<para>Para 7</para>
+		</section>
+	</ad>
+</root>

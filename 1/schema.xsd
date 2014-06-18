@@ -1,0 +1,42 @@
+<!--
+	Продемонстрируем использование схемы для частичной проверки входящего xml с объявлениями
+
+	Проверка что только тег section может быть прямым потомком тега form
+	у тега form обязательный атрибут id
+	внутри тега title не может находиться каких-либо других тегов
+	внутри тега section могут находиться любые теги
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+      	<xs:element name="ad" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="forms">
+		          <xs:complexType>
+		            <xs:sequence>
+		            	<xs:element name="form" maxOccurs="unbounded" minOccurs="0">
+				          <xs:complexType>
+		            		<xs:attribute type="xs:integer" name="id" use="required"/>
+				          </xs:complexType>
+		            	</xs:element>
+		            </xs:sequence>
+		          </xs:complexType>
+            	</xs:element>
+            	<xs:element name="section">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="title"/>
+                    <xs:any processContents="skip" maxOccurs="unbounded" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
