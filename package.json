@@ -9,7 +9,7 @@
  },
  "dependencies" : {
   "node_xslt" : ">0.0.0",
-  "express": "^4.1.2",
+  "express": "3.x",
   "node_xslt": ">0.0.0",
   "execSync": ">0.0.0"
  }

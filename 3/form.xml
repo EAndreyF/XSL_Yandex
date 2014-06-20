@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<form action='submit.process' method='POST'>
+	<input name='fi' type='text' required='required' length='5'>
+		<value>12345</value>
+		<label>First input</label>
+		<!--<error>Incorrect first input</error>-->
+	</input>
+	<input name='si' type='number' min='2' max='5'>
+		<value>3</value>
+		<label>Second input</label>
+	</input>
+	<input name='ti' type='text' regexp='^\d{2}-\d{2}$' length='5'>
+		<value>12-34</value>
+		<label>Third input</label>
+		<error>Custom error</error>
+	</input>
+</form>
