@@ -15,7 +15,7 @@
 
 	// js и css файлы отдаём как есть. (настроено на nginx, правило необходимо для локального тестирования)
 	app.get(/\.js|\.css/, function(req, res) {
-		res.sendfile(__dirname + '/public' + req.url);
+		res.sendfile(__dirname + req.url);
 	});
 
 	// процессинг форм
@@ -32,7 +32,7 @@
 
 	// для корневой страницы показываем index.html (тоже настроено на nginx)
 	app.get(/^\/$/, function(req, res) {
-		res.sendfile(__dirname + '/public/index.html');
+		res.sendfile(__dirname + '/index.html');
 	});
 
 	// основной роутер. для папки роутим на файл task.js
