@@ -26,7 +26,7 @@
 		<xsl:variable name='result'>
 			<xsl:call-template select='.' name='checking'>
 				<xsl:with-param name='var' select='dyn:evaluate(concat("$", @name))' />
-				<xsl:with-param name='var_empty' select='dyn:evaluate(concat("$", @name, "_empty"))' />
+				<!--<xsl:with-param name='var_empty' select='dyn:evaluate(concat("$", @name, "_empty"))' />-->
 			</xsl:call-template>
 		</xsl:variable>
 
@@ -35,7 +35,7 @@
 
 	<xsl:template name='checking'>
 		<xsl:param name='var'/>
-		<xsl:param name='var_empty'/>
+		<!--<xsl:param name='var_empty'/>-->
 		<result>
 			<xsl:copy-of select='@name' />
 			<xsl:apply-templates select='error' />
@@ -55,26 +55,46 @@
 
 	<xsl:template match='@min' mode='check'>
 		<xsl:param name='var'/>
-		<xsl:param name='var_empty'/>
+		<!--<xsl:param name='var_empty'/>
 		<xsl:if test='not($var_empty = "true") and (. >= $var)'>
 			<error>less than <xsl:value-of select='.' />;
+			</error>
+		</xsl:if>-->
+
+		<xsl:param name='var_empty'/>
+		<!--<error>
+			<xsl:value-of select='.' />
+		</error>-->
+		<xsl:if test='. >= $var'>
+			<error>equal or less than <xsl:value-of select='.' />;
 			</error>
 		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match='@max' mode='check'>
 		<xsl:param name='var'/>
-		<xsl:param name='var_empty'/>
+		<!--<xsl:param name='var_empty'/>
 		<xsl:if test='not($var_empty = "true") and ($var >= .)'>
 			<error>more than <xsl:value-of select='.' />;
+			</error>
+		</xsl:if>-->
+
+		<xsl:if test='$var >= .'>
+			<error>equal or more than <xsl:value-of select='.' />;
 			</error>
 		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match='@length' mode='check'>
 		<xsl:param name='var'/>
-		<xsl:param name='var_empty'/>
+		<!--<xsl:param name='var_empty'/>
 		<xsl:if test='not($var_empty = "true") and not(string-length($var) = .)'>
+			<error>
+				length isn't <xsl:value-of select='.' />;
+			</error>
+		</xsl:if>-->
+
+		<xsl:if test='not(string-length($var) = .)'>
 			<error>
 				length isn't <xsl:value-of select='.' />;
 			</error>
@@ -83,8 +103,9 @@
 
 	<xsl:template match='@required' mode='check'>
 		<xsl:param name='var'/>
-		<xsl:param name='var_empty'/>
-		<xsl:if test='not($var_empty = "true") and (string-length($var) = 0)'>
+		<!--<xsl:param name='var_empty'/>
+		<xsl:if test='not($var_empty = "true") and (string-length($var) = 0)'> -->
+		<xsl:if test='string-length($var) = 0'>
 			<error>
 				field is required;
 			</error>

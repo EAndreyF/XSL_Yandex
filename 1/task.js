@@ -1,5 +1,7 @@
 exports.run = function(query) {
+	// Если id формы не указан, то считаем что первый id
 	var id = query && query.id || 1;
+	
 		xslt = require('node_xslt'),
 		fs = require('fs'),
 		libxml = require('libxmljs'),
@@ -12,7 +14,7 @@ exports.run = function(query) {
 
 		stylesheet = xslt.readXsltFile(template),
 		doc = xslt.readXmlFile('./1' + xml);
-
+	// Если форма проходит валидацию то выполняем преобразование
 	if (xml_text.validate(schema_text)) {
 		return xslt.transform(stylesheet, doc, ['id', id]);
 	} else {

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<root>
+	<request>
+		<host>mysite.com</host>
+		<url>/about</url>
+	</request>
+
+	<project>
+		<page name='Main'>/</page>
+		<page name='Catalog'>/catalog</page>
+		<page name='About'>/about</page>
+		<page name='Concats'>/contacts</page>
+	</project>
+</root>

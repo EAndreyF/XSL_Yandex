@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:template match="/">
+		<!-- выводим значения переданых параметров -->
 		----- year - 
 		<xsl:value-of select="$year" />
 		----- sort - 
@@ -15,12 +16,14 @@
 	</xsl:template>
 
 	<xsl:template match="audios" >
-
+		<!-- Ыильтруем по переданным параметрам -->
 		<xsl:apply-templates select='audio[artist[$artist=text() or $artist=""]][year[$year=text() or $year=""]]'>
+			<!-- Сортируем то что получилось после фильтра-->
 			<xsl:sort select="*[name()=$sort]" order="{$order}" />
 		</xsl:apply-templates>
 	</xsl:template>
 
+	<!-- Выводи отфильтрованные и отсортированные данные-->
 	<xsl:template match="audio">
 		<li>
 			<xsl:value-of select="year" /> - 

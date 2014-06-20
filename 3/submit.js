@@ -13,10 +13,12 @@ exports.run = function(params) {
 		param,
 		key;
 
+	// каждый параметр обарачиваем в ковычки, чтобы не вычислялся и добавляем дублирующий параметр, который будет говорить пустое значение или нет
 	for(key in params) {
-		param = params[key] ? '"' + params[key] + '"' : 'empty';
+		//param = params[key] ? '"' + params[key] + '"' : 'empty';
+		param = '"' + params[key] + '"';
 		xsl_param.push(key, param);
-		xsl_param.push(key + '_empty', params[key] === '');
+		//xsl_param.push(key + '_empty', params[key] === '');
 	}
 	console.log(xsl_param);
 	result = xslt.transform(stylesheet, doc, xsl_param);

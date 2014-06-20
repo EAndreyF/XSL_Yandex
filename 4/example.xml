@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<menu>
+	<item>
+		<title>Main</title>
+		<url>/</url>
+	</item>
+	<item>
+		<title>Catalog</title>
+		<url>/catalog</url>
+	</item>
+	<item is-current=false>
+		<title>About</title>
+		<url>/about</url>
+	</item>
+	<item>
+		<title>Contacts</title>
+		<url>/contacts</url>
+	</item>
+</menu>
