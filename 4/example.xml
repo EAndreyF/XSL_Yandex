@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-
+<!-- Пример временного дерева -->
 <menu>
 	<item>
 		<title>Main</title>
@@ -9,7 +9,7 @@
 		<title>Catalog</title>
 		<url>/catalog</url>
 	</item>
-	<item is-current=false>
+	<item is-current="true">
 		<title>About</title>
 		<url>/about</url>
 	</item>

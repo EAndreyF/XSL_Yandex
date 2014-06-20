@@ -1,7 +1,7 @@
 {
  "name" : "xsl_yandex",
  "version" : "1.0.0",
- "description" : "Yandex school XSL tasks. Shell should support xsltproc command",
+ "description" : "Yandex school XSL tasks",
  "url" : "http://xsl.andreyevstropov.com/",
  "repository" : {
   "type" : "git",

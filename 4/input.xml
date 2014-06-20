@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-
+<!-- пример входного файла -->
 <root>
 	<request>
 		<host>mysite.com</host>
